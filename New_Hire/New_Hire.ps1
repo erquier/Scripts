@@ -3,7 +3,7 @@
     Import-Module ActiveDirectory -ErrorAction Stop
 
     # Ruta al archivo Excel
-    $archivo = "C:\Users\la.esantana\Downloads\Scripts\New_Hire\New_Hire.xlsx"
+    $archivo = "C:\ruta\de\script\New_Hire.xlsx"
 
     # Leer el archivo Excel
     $usuarios = Import-Excel -Path $archivo -ErrorAction Stop
@@ -43,7 +43,7 @@
                 # Crear el usuario en Active Directory
                 $newUserParams = @{
                     SamAccountName = $username
-                    UserPrincipalName = "$username@s2g.net"
+                    UserPrincipalName = "$username@yourdomain.comm"
                     GivenName = $nombre
                     Surname = $apellido
                     Name = "$nombre $apellido"
