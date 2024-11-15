@@ -1,5 +1,5 @@
 ﻿# Importar los usuarios desde un archivo CSV
-$usuarios = Import-Csv -Path 'C:\Users\la.esantana\Downloads\Scripts\New_Hire\officeChange.csv'
+$usuarios = Import-Csv -Path 'C:\ruta\del\archivo\officeChange.csv'
 
 # Recorrer cada usuario en el archivo CSV
 foreach ($usuario in $usuarios) {
