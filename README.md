@@ -29,7 +29,7 @@ Requisitos
 PowerShell: La mayoría de los scripts están en PowerShell, por lo que es necesario tener PowerShell instalado y configurado en tu sistema.
 Módulo de Active Directory: Algunos scripts requieren el módulo de Active Directory para ejecutar cmdlets como Get-ADUser, Add-ADGroupMember, entre otros.
 Cómo Usar
-Clona el repositorio: git clone https://github.com/tu_usuario/tu_repositorio.git
+Clona el repositorio: git clone https://github.com/erquier/Scripts.git
 Navega al directorio correspondiente al script que deseas utilizar.
 Lee las instrucciones dentro de cada script para adaptarlo a tus necesidades específicas antes de ejecutarlo.
 Contribuciones
