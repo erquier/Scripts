@@ -3,7 +3,7 @@
 Import-Module ActiveDirectory
 
 # Ruta al archivo .xlsm o .xlsx
-$archivo = "C:\Users\la.esantana\Downloads\Scripts\Ou_search\ADUsernameLookUp.xlsx"
+$archivo = "C:\ruta\del\archivo\ADUsernameLookUp.xlsx"
 
 try {
     # Leer el archivo
@@ -36,8 +36,8 @@ try {
                     $grupos = $gruposUsuario -join ', '
 
                     # Determinar el dominio del correo
-                    $dominioCorreo = if ($usuarioAD.EmailAddress -like '*@supportservicesgroup.co*') {
-                        "@supportservicesgroup.co"
+                    $dominioCorreo = if ($usuarioAD.EmailAddress -like '*@yourdomain.com*') {
+                        "@yourdomain.comm"
                     } else {
                         "@s2g.net"
                     }
