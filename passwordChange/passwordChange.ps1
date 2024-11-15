@@ -3,7 +3,7 @@
 Import-Module ActiveDirectory
 
 # Read data from CSV file
-$accounts = Import-Csv -Path "C:\Users\la.esantana\Downloads\Scripts\passwordChange\passwordChange.csv"
+$accounts = Import-Csv -Path "C:\ruta\de\archivo\passwordChange.csv"
 
 # Loop through the list and change passwords
 foreach ($account in $accounts) {
