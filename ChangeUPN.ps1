@@ -2,8 +2,8 @@
 Import-Module ActiveDirectory
 
 # Define the old and new UPN suffix
-$oldSuffix = "@s2g.net"
-$newSuffix = "@supportservicesgroup.co"
+$oldSuffix = "@yourdomain"
+$newSuffix = "@newdomain"
 
 # Ask for the username
 $userName = Read-Host -Prompt 'Enter the username'
