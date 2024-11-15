@@ -1,0 +1,62 @@
+# Ruta del archivo CSV con los nombres de usuario
+$csvPath = "C:\Ruta\del\archivo\clean_usernames.csv"
+
+# Nombre del grupo de seguridad
+$groupName = "AD-Security-Group-Name"
+
+# Importar el módulo de Active Directory
+Import-Module ActiveDirectory
+
+# Leer los nombres de usuario del archivo CSV
+$users = Import-Csv -Path $csvPath
+
+$totalUsers = $users.Count
+$i = 0
+
+# Obtener los miembros actuales del grupo
+$groupMembers = Get-ADGroupMember -Identity $groupName -Recursive | Select-Object -ExpandProperty SamAccountName
+
+# Arrays para almacenar resultados
+$alreadyInGroup = @()
+$notFound = @()
+$added = @()
+
+# Iterar sobre cada usuario y agregarlo al grupo
+foreach ($user in $users) {
+    $i++
+    $percentComplete = [int](($i / $totalUsers) * 100)
+
+    $username = $user.Username
+
+    Write-Progress -Activity "Procesando usuarios" -Status "Procesando $username ($i de $totalUsers)" -PercentComplete $percentComplete
+
+    try {
+        # Verificar si el usuario existe en AD
+        $adUser = Get-ADUser -Filter {SamAccountName -eq $username}
+
+        if ($adUser) {
+            if ($groupMembers -contains $username) {
+                # Usuario ya está en el grupo
+                $alreadyInGroup += $username
+            } else {
+                # Agregar el usuario al grupo
+                Add-ADGroupMember -Identity $groupName -Members $adUser.SamAccountName
+                $added += $username
+            }
+        } else {
+            $notFound += $username
+        }
+    } catch {
+        Write-Host "Error al procesar el usuario ${username}: $_"
+    }
+}
+
+# Mostrar resultados
+Write-Host "`nUsuarios agregados al grupo:"
+$added
+
+Write-Host "`nUsuarios ya estaban en el grupo:"
+$alreadyInGroup
+
+Write-Host "`nUsuarios no encontrados en AD:"
+$notFound
