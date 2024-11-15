@@ -1,4 +1,5 @@
 Active Directory Automation Scripts
+
 Este repositorio contiene una colección de scripts y herramientas en PowerShell y Batch diseñadas para facilitar la administración de Active Directory (AD). Los scripts están organizados en carpetas según sus funcionalidades y pueden ser utilizados para automatizar tareas comunes en entornos de TI, como la gestión de usuarios, restricciones de red y búsquedas en el directorio. Cada script ha sido optimizado para mejorar la eficiencia en la gestión de AD, incluyendo barras de progreso, manejo de errores, y mensajes claros para el usuario.
 
 Estructura del Repositorio
