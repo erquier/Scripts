@@ -2,11 +2,11 @@
 Import-Module ActiveDirectory
 
 # Definir las rutas de origen y destino
-$SourceOU = "OU=Workstations,OU=Santiago 2 (SA2),OU=Contact_Centers,DC=s2g,DC=net"
-$DestinationOU = "OU=Altice,OU=Workstations,OU=Santiago 2 (SA2),OU=Contact_Centers,DC=s2g,DC=net"
+$SourceOU = "OU=origin"
+$DestinationOU = "OU=destination"
 
 # Obtener todas las computadoras que comienzan con "SA2-D-" en la OU de origen
-$Computers = Get-ADComputer -SearchBase $SourceOU -Filter { Name -like "SA2-D-*" }
+$Computers = Get-ADComputer -SearchBase $SourceOU -Filter { Name -like "PC-D-*" }
 
 # Inicializar contadores
 $TotalComputers = $Computers.Count
